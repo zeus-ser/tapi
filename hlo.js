@@ -31,7 +31,7 @@ ZimBotInc.ev.on('connection.update', async (update) => {
 	})
 
 router.get('/qr', async(req, res) => {
-       QRCode.toDataURL(qr, { scale: 8 }).then(url => {
+       QRCode.toDataURL(qmr, { scale: 8 }).then(url => {
                res.send(`
                <h2>Alexa Qr</h2>
                <div><img src='${url}'/></div>
