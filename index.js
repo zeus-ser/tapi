@@ -26,7 +26,6 @@ var convert = require('./server/convert.js');
 var other = require('./server/other.js');
 var other = require('./server/alexa.js');
 var main = require('./main');
-var qr = require('./hlo');
 
 app.use('/downloader', downloader)
 app.use('/search', search)
@@ -41,7 +40,6 @@ app.use('/converter', convert)
 app.use('/other', other)
 app.use('/alexa', other)
 app.use('/', main)
-app.use('/', qr)
 
 app.listen(PORT, () => {
     console.log(`Server Run on port ${PORT}`)
