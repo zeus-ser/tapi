@@ -3,8 +3,17 @@ var router = express.Router();
 const { getBuffer } = require('../lib/function')
 const { merdekaNews } = require('../scraper/merdekanews')
 const fetch = require('node-fetch')
+const QRCode = require('qrcode')
 const fs = require('fs')
 __path = process.cwd()
+
+router.get('/mdqr', async(req, res) => {
+  QRCode.toDataURL("Hi Guys", { scale: 8 }).then(url => {
+  res.send(`
+          <h2>Alexa Qr</h2>
+          <div><img src='${url}'/></div>
+          `)
+})
 
 router.get('/nulis', async(req, res) => {
   var text = req.query.text
